@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Welcome from '../Components/Home/Welcome';
+import Welcome from '../components/Home/Welcome';
 
 const HomePage = () => {
     const [startingIndex, setStartigIndex] = useState(0);

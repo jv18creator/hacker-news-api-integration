@@ -14,8 +14,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-import StoryCard from '../StoryCard';
-// import YoutubeSearchedForIcon from '@material-ui/icons';
+import StoryCard from './StoryCard';
 import { YoutubeSearchedForOutlined } from '@material-ui/icons';
 
 export const centerFloatingBtn = {
@@ -113,7 +112,7 @@ const Welcome = (props) => {
             </div>
         );
     }
-    console.log('rendred');
+
     return (
         <>
             <div style={centerFloatingBtn} onClick={loadMoreStories}>
