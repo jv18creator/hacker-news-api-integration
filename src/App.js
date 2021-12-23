@@ -1,9 +1,10 @@
-import { Container, CssBaseline, Typography } from '@material-ui/core';
-import Navbar from './Components/Navbar/Navbar';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Welcome from './Components/Home/Welcome';
-import Footer from './Components/Footer.js/Footer';
-import HomePage from './Pages/HomePage';
+import { CssBaseline } from '@material-ui/core';
+import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
+import HomePage from './pages/HomePage';
+import UserInfoPage from './pages/UserInfoPage';
+import NewestNewsPage from './pages/NewestNewsPage';
 
 function App() {
     return (
@@ -14,6 +15,12 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <HomePage />
+                    </Route>
+                    <Route exact path="/newest">
+                        <NewestNewsPage />
+                    </Route>
+                    <Route path="/:id">
+                        <UserInfoPage />
                     </Route>
                 </Switch>
                 <Footer />

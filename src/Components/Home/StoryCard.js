@@ -11,11 +11,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { ChangeHistoryTwoTone } from '@material-ui/icons';
+import { useDispatch } from 'react-redux';
+import { fetchUserInfo } from '../../redux/actions/fetchUserInfo';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: 275,
-        width: 275,
+        height: 300,
+        width: 300,
     },
     bullet: {
         display: 'inline-block',
@@ -44,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
 const StoryCard = ({ storyId }) => {
     const classes = useStyles();
     const [storyData, setStoryData] = useState({});
+    const dispatch = useDispatch();
+
+    const redirectToUsersPage = (story) => {
+        dispatch(fetchUserInfo(story.by));
+    };
 
     useEffect(() => {
         if (storyId) {
@@ -65,11 +72,8 @@ const StoryCard = ({ storyId }) => {
     const date = new Date(storyData?.time * 1000);
     const hours = date.getHours();
 
-    console.log('storyData', storyData);
-
     return (
         <>
-            {' '}
             <Card className={`${classes.root} ${classes.cardSpacing}`}>
                 <CardContent>
                     <Typography
@@ -106,8 +110,17 @@ const StoryCard = ({ storyId }) => {
                         />
                     </Typography>
                     <Typography variant="body2" component="p">
-                        {storyData?.score} points by {storyData?.by} <br />{' '}
-                        {hours} hours ago
+                        {storyData?.score} points by{' '}
+                        <Link to={'/user?id=' + storyData.by}>
+                            {' '}
+                            <span
+                                onClick={() => redirectToUsersPage(storyData)}
+                            >
+                                {' '}
+                                {storyData?.by}
+                            </span>
+                        </Link>{' '}
+                        <br /> {hours} hours ago
                     </Typography>
                 </CardContent>
                 <CardActions>
