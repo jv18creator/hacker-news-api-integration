@@ -44,32 +44,11 @@ const SideMenuLinks = (props) => {
                         New
                     </Link>
                 </Toolbar>
+
                 <Toolbar>
                     <Link
                         variant="subtitle1"
-                        href="#"
-                        color="secondary"
-                        className={classes.linkColor}
-                        onClick={closeMenu}
-                    >
-                        Past
-                    </Link>
-                </Toolbar>
-                <Toolbar>
-                    <Link
-                        variant="subtitle1"
-                        href="#"
-                        color="secondary"
-                        className={classes.linkColor}
-                        onClick={closeMenu}
-                    >
-                        Comments
-                    </Link>
-                </Toolbar>
-                <Toolbar>
-                    <Link
-                        variant="subtitle1"
-                        href="#"
+                        to="/ask"
                         color="secondary"
                         className={classes.linkColor}
                         onClick={closeMenu}
@@ -80,7 +59,7 @@ const SideMenuLinks = (props) => {
                 <Toolbar>
                     <Link
                         variant="subtitle1"
-                        href="#"
+                        to="/show"
                         color="secondary"
                         className={classes.linkColor}
                         onClick={closeMenu}
@@ -91,7 +70,7 @@ const SideMenuLinks = (props) => {
                 <Toolbar>
                     <Link
                         variant="subtitle1"
-                        href="#"
+                        to="/jobs"
                         color="secondary"
                         className={classes.linkColor}
                         onClick={closeMenu}
@@ -102,7 +81,29 @@ const SideMenuLinks = (props) => {
                 <Toolbar>
                     <Link
                         variant="subtitle1"
-                        href="#"
+                        to="#"
+                        color="secondary"
+                        className={classes.linkColor}
+                        onClick={closeMenu}
+                    >
+                        Comments
+                    </Link>
+                </Toolbar>
+                <Toolbar>
+                    <Link
+                        variant="subtitle1"
+                        to="#"
+                        color="secondary"
+                        className={classes.linkColor}
+                        onClick={closeMenu}
+                    >
+                        Past
+                    </Link>
+                </Toolbar>
+                <Toolbar>
+                    <Link
+                        variant="subtitle1"
+                        to="/submit"
                         color="secondary"
                         className={classes.linkColor}
                         onClick={closeMenu}

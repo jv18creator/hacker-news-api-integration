@@ -22,7 +22,7 @@ export const centerFloatingBtn = {
     inset: '90% 50% 0 50%',
     zIndex: 1000,
     width: '280px',
-    transform: `translateX(-30%)`,
+    transform: `translateX(-22%)`,
 };
 
 export const loading = {
