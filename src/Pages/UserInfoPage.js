@@ -47,7 +47,6 @@ const UserInfoPage = () => {
             </div>
         );
     }
-    console.log('userInfo', userInfo);
 
     return (
         <>

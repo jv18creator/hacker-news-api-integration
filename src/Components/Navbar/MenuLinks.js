@@ -81,7 +81,7 @@ const SideMenuLinks = (props) => {
                 <Toolbar>
                     <Link
                         variant="subtitle1"
-                        to="#"
+                        to="/newcomments"
                         color="secondary"
                         className={classes.linkColor}
                         onClick={closeMenu}

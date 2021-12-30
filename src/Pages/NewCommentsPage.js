@@ -1,29 +1,33 @@
 import { Container, Fab, Grid, CircularProgress } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import StoryCard from '../components/Home/StoryCard';
 import { centerFloatingBtn, loading } from '../components/Home/Welcome';
+import {
+    fetchAskStories,
+    fetchTopStories,
+    fetchTopStoriesId,
+} from '../redux/actions/fetchAskStories';
+import CommentCard from '../components/CommentCard';
 import { YoutubeSearchedForOutlined } from '@material-ui/icons';
-import { fetchJobStories } from '../redux/actions/fetchAskStories';
 
-const JobStoryPage = () => {
+const NewCommentsPage = () => {
     const dispatch = useDispatch();
-    const jobStoryId = useSelector(
-        (state) => state.askStoriesReducer.jobStoriesId
+    const topStoriesId = useSelector(
+        (state) => state.newCommentsReducer.topStories
     );
     const [startingIndex, setStartigIndex] = useState(0);
-    const [endingIndex, setEndingIndex] = useState(10);
+    const [endingIndex, setEndingIndex] = useState(3);
 
     useEffect(() => {
-        dispatch(fetchJobStories());
+        dispatch(fetchTopStoriesId());
     }, []);
 
     const loadMoreStories = () => {
-        setStartigIndex(startingIndex + 10);
-        setEndingIndex(endingIndex + 10);
+        setStartigIndex(startingIndex + 3);
+        setEndingIndex(endingIndex + 3);
     };
 
-    if (!jobStoryId?.length > 0) {
+    if (!topStoriesId?.length > 0) {
         return (
             <div style={loading}>
                 <CircularProgress />
@@ -46,13 +50,15 @@ const JobStoryPage = () => {
                     justifyContent="center"
                     alignItems="center"
                 >
-                    {jobStoryId.slice(startingIndex, endingIndex).map((id) => {
-                        return <StoryCard key={id} storyId={id} />;
-                    })}
+                    {topStoriesId
+                        .slice(startingIndex, endingIndex)
+                        .map((id) => {
+                            return <CommentCard key={id} topStoriesId={id} />;
+                        })}
                 </Grid>
             </Container>
         </>
     );
 };
 
-export default JobStoryPage;
+export default NewCommentsPage;

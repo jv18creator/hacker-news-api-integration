@@ -10,6 +10,7 @@ import ShowStoryPage from './pages/ShowStoryPage';
 import JobStoryPage from './pages/JobStoryPage';
 import SignIn from './pages/LoginSubmitPage';
 import SignUp from './pages/SingUp';
+import NewCommentsPage from './pages/NewCommentsPage';
 
 function App() {
     return (
@@ -41,6 +42,9 @@ function App() {
                     </Route>
                     <Route path="/sign-up">
                         <SignUp />
+                    </Route>
+                    <Route path="/newcomments">
+                        <NewCommentsPage />
                     </Route>
                     <Route path="/:id">
                         <UserInfoPage />
